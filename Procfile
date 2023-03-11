@@ -1,1 +1,1 @@
-web: gunicorn pauls-panels-limited.wsgi --log-file -
+web: gunicorn PaulsPanelsLogistics.wsgi --log-file -
