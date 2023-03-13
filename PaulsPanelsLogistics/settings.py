@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pauls-panels-limited.herokuapp.com']
+ALLOWED_HOSTS = ['pauls-panels-limited.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -83,10 +83,18 @@ WSGI_APPLICATION = 'PaulsPanelsLogistics.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dcvo4jsdmchh47',
+        'USER': 'ttaaksklsalryw',
+        'PASSWORD': '571701da218fc84bd40abdedc62db65c58d3b14e1106ed14283600c1709da1a8',
+        'HOST': 'ec2-52-215-68-14.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
+        'OPTIONS': {
+            'client_encoding': 'utf8',
+        },
     }
 }
+
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
