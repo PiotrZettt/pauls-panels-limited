@@ -22,9 +22,9 @@ function Logistics(props){
     const [subtractQuantity, setSubstractQuantity] = useState(1)
     const [endpoint, setEndpoint] = useState('')
 
-    const projectUrl = 'api/Project/'
-    const customerUrl = 'api/Customer/'
-    const collectionUrl = 'api/Collection/'
+    const projectUrl = 'api/Project?orderBy=id/'
+    const customerUrl = 'api/Customer?orderBy=id/'
+    const collectionUrl = 'api/Collection?orderBy=id/'
 
     const token = props.token
 

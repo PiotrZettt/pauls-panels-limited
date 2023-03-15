@@ -41,38 +41,45 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
+
 class CustomerViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
-    queryset = Customer.objects.all()
+    queryset = Customer.objects.order_by('id')
     serializer_class = CustomerSerializer
+    ordering_fields = ['id']
 
 
 class ProjectViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
-    queryset = Project.objects.all()
+    queryset = Project.objects.order_by('id')
     serializer_class = ProjectSerializer
+    ordering_fields = ['id']
 
 
 class OperationViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
-    queryset = Operation.objects.all()
+    queryset = Operation.objects.order_by('id')
     serializer_class = OperationSerializer
+    ordering_fields = ['id']
 
 
 class CollectionViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
-    queryset = Collection.objects.all()
+    queryset = Collection.objects.order_by('id')
     serializer_class = CollectionSerializer
+    ordering_fields = ['id']
 
 
 class DeliveryViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
-    queryset = Delivery.objects.all()
+    queryset = Delivery.objects.order_by('id')
     serializer_class = DeliverySerializer
+    ordering_fields = ['id']
 
 
 class PartInstanceViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
-    queryset = PartInstance.objects.all()
+    queryset = PartInstance.objects.order_by('id')
     serializer_class = PartInstanceSerializer
+    ordering_fields = ['id']
 

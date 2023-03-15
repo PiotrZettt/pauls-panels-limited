@@ -21,7 +21,7 @@ function StockTake(props) {
     const [lastIncrease, setLastIncrease] = useState(0)
 
     let counterColor = '10px solid orange'
-    if (qty == props.projects[selectedProject-1]?.stock){
+    if (qty == props.projects[selectedProject - 1]?.stock){
         counterColor = '10px solid green'
     }
 
@@ -84,6 +84,8 @@ function StockTake(props) {
         </div>
 
     </div>
+
+    console.log("stocktake", props.projects[selectedProject -1]?.name, selectedProject)
 
     return <div>
 

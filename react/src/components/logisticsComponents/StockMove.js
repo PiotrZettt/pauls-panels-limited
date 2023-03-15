@@ -23,6 +23,7 @@ function StockMove(props){
     const [showSaveButton, setShowSaveButton] = useState(false)
     const [showAddSerialsButton, setShowAddSerialsButton] = useState(false)
     const [collection, setCollection] = useState(null)
+    const [projectName, setProjectName] = useState('')
 
     const [serialNumbers, setSerialNumbers] = useState([])
 
@@ -41,9 +42,9 @@ function StockMove(props){
         axios.defaults.withCredentials = true;
 
         const data = {"project": selectedProject, "qty": parseInt(qty)}
-        const newStock = (props.projects[selectedProject - 1].stock + (parseInt(qty) * props.substract)
-)
-        console.log("data: ", data, "old stock: ", props.projects[selectedProject - 1].stock,  "new stock: ", newStock)
+        const newStock = props.projects[selectedProject -1].stock + (parseInt(qty) * props.substract)
+
+        console.log("data: ", data, "old stock: ", props.projects.find(obj => obj.id === selectedProject).stock,  "new stock: ", newStock)
 
         axios(
             {
@@ -87,7 +88,12 @@ function StockMove(props){
             setSelectedProject(e.target.value)
             setShowQtyInput(true)
             setShowAddSerialsButton(false)
-            console.log(e.target.value)
+            const projects = props.projects
+            const name = projects.filter(obj => obj.id === selectedProject).name
+            setProjectName(name)
+            
+            console.log(" name:",  name)
+            
           }
 
     function stockMovementDirection() {

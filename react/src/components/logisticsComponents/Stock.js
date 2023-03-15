@@ -10,12 +10,6 @@ import Card from './Card'
 
 function Stock(props) {
 
-    const projectUrl = 'apiProject/'
-    const customerUrl = 'apiCustomer/'
-
-    const [currentProjects, setNewCurrentProjects] = useState([])
-    const [currentCustomers, setNewCurrentCustomers] = useState([])
-
     return <div>
         <Card>
 
