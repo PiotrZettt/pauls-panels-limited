@@ -47,7 +47,19 @@ function StockTake(props) {
         axios.defaults.xsrfCookieName = "csrftoken";
         axios.defaults.withCredentials = true;
 
-        axios.patch(apiEndpoints.apiProject + selectedProject + '/', { "stock": parseInt(qty) });
+        axios(
+        {
+            method: 'PATCH',
+            url: apiEndpoints.apiProject + selectedProject + '/',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Token ' + props.token,
+            
+                },
+
+            data: { "stock": parseInt(qty) }
+            }
+        )
 
     }
 

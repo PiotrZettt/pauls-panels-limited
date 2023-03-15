@@ -88,9 +88,7 @@ function StockMove(props){
             setSelectedProject(e.target.value)
             setShowQtyInput(true)
             setShowAddSerialsButton(false)
-            const projects = props.projects
-            const name = projects.filter(obj => obj.id === selectedProject).name
-            setProjectName(name)
+            setProjectName(props.projects[selectedProject -1].name)
             
             console.log(" name:",  name)
             
