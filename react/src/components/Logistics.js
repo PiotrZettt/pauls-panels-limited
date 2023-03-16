@@ -7,7 +7,8 @@ import StockMove from "./logisticsComponents/StockMove"
 import StockTake from "./logisticsComponents/StockTake";
 import Records from './logisticsComponents/Records'
 import apiEndpoints from "./ApiEndpoints";
-import Date from "./logisticsComponents/Date";
+import Card from './logisticsComponents/Card';
+import Date from './logisticsComponents/Date';
 
 
 
@@ -35,8 +36,15 @@ function Logistics(props){
     const [refresh, setRefresh] = useState(true)
 
     const logisticsInfo = <div className="align-left">
-        <div>In here you can:<ul> <li><h5>check current stock numbers</h5></li><li><h3>record a delivery or collection</h3></li><li><h4>do a stock take</h4></li><li><h5>search for records of previous deliveries and collections by date</h5></li>.</ul></div>
+        <div>In here you can:
+            <ul> 
+                <li>Check current stock numbers</li>
+                <li>Record a delivery or collection</li>
+                <li>Do a stock take</li>
+                <li>Search for records of previous deliveries and collections by date</li>
+            </ul>
         </div>
+    </div>
 
     const noDisplay = <div></div>
 
@@ -80,7 +88,7 @@ function Logistics(props){
 
     return <div>
             <h2>Logistics it is</h2>
-            {displayLogisticsInfo? logisticsInfo: noDisplay}
+            <Card>{displayLogisticsInfo? logisticsInfo: noDisplay}</Card>
             
             
         <div className="button-group">
