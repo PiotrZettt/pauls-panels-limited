@@ -39,7 +39,16 @@ function Wip(props){
                   },
                 data: data,
                 }
-            )
+            ).then((response) => {
+              const data = response.data;
+              console.log(data)
+          }).catch((error) => {
+              if (error.response) {
+              console.log(error.response);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+              }
+          });
 
             setDisplaySerial(false)
             setDisplayTask(false)
