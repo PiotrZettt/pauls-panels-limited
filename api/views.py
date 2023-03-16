@@ -1,14 +1,9 @@
 from django.http import JsonResponse
-from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import permissions
-from django.contrib.auth.models import User
-from data.models import *
 from .serializers import *
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
 # Create your views here.

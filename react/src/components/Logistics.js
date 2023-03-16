@@ -46,6 +46,8 @@ function Logistics(props){
         </div>
     </div>
 
+    const logo = <h4>Pauls Panels Limited</h4>
+
     const noDisplay = <div></div>
 
     useEffect(()=>{
@@ -88,7 +90,7 @@ function Logistics(props){
 
     return <div>
             <h2>Logistics it is</h2>
-            <Card>{displayLogisticsInfo? logisticsInfo: noDisplay}</Card>
+            <Card>{displayLogisticsInfo? logisticsInfo: logo}</Card>
             
             
         <div className="button-group">
