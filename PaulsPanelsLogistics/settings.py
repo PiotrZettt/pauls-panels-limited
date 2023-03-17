@@ -162,7 +162,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
-        'api.authentication.CustomTokenAuthentication',
+
 
     ),
 }
@@ -170,6 +170,8 @@ REST_FRAMEWORK = {
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'rest_framework.authentication.TokenAuthentication',
+    'api.authentication.CustomTokenAuthentication',
+
 )
 
 

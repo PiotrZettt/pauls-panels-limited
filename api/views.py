@@ -1,6 +1,9 @@
 from django.http import JsonResponse
-from rest_framework import viewsets
+from rest_framework import viewsets, parsers, renderers
 from rest_framework import permissions
+from rest_framework.authtoken.serializers import AuthTokenSerializer
+from rest_framework.views import APIView
+
 from .serializers import *
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.models import Token
@@ -10,35 +13,27 @@ from rest_framework.response import Response
 
 # Create your views here.
 
+
 def get_current_user(request):
     user = request.user
     return JsonResponse({"user": user.id})
 
 
-class CustomAuthToken(ObtainAuthToken):
-    permission_classes = [permissions.IsAuthenticated]
+class CustomObtainAuthToken(ObtainAuthToken):
+    throttle_classes = ()
+    permission_classes = ()
+    parser_classes = (parsers.FormParser, parsers.MultiPartParser, parsers.JSONParser,)
+    renderer_classes = (renderers.JSONRenderer,)
 
-    def post(self, request, *args, **kwargs):
-        serializer = self.serializer_class(data=request.data,
-                                           context={'request': request})
-        try:
-            token = Token.objects.get()
-            user = token.user
-        except Token.DoesNotExist:
-            raise exceptions.AuthenticationFailed('Invalid token')
-
-        # Generate a new token for the user each time they log in
-        token.delete()
-        new_token = Token.objects.create(user=user)
+    def post(self, request):
+        serializer = AuthTokenSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
-        token, created = Token.objects.get_or_create(user=user)
 
-        return Response({
-            'token': token.key,
-            'user_id': user.pk,
-            'email': user.email
-        })
+        Token.objects.filter(user=user).delete()
+        token, created = Token.objects.create(user=user)
+
+        return Response({'token': token.key})
 
 
 class UserViewSet(viewsets.ModelViewSet):

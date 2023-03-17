@@ -6,7 +6,7 @@ from rest_framework import exceptions
 class CustomTokenAuthentication(TokenAuthentication):
     def authenticate_credentials(self, key):
         try:
-            token = Token.objects.get(key=key)
+            token = Token.objects.select_related('user').get(key=key)
             user = token.user
         except Token.DoesNotExist:
             raise exceptions.AuthenticationFailed('Invalid token')
