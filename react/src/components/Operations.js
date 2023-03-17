@@ -9,6 +9,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import axios from "axios";
 import apiEndpoints from "./ApiEndpoints";
+import Card from './logisticsComponents/Card';
 import { Tab } from "bootstrap";
 
 function Operations(props){
@@ -149,7 +150,7 @@ function Operations(props){
                         </tr>
                         <tr>
                             <td className="left">OPERATOR</td>
-                            <td className="right">{users[part.operator - 1]?.username}</td>
+                            <td className="right">{users[part.operator -1]?.username}</td>
                         </tr>
                         <tr>
                             <td className="left">DATE</td>

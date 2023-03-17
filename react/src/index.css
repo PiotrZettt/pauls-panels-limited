@@ -132,11 +132,12 @@ button {
 .card {
   text-align: center;
   color:black;
-  background-color: rgb(226, 228, 230);
+  background-color: rgb(242, 242, 242);
   max-width: 400px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  margin: 10px;
+  padding: 10px;
   position: relative;
   left: 50%;
   transform: translate(-50%);
