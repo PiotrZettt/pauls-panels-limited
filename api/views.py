@@ -2,8 +2,10 @@ from django.http import JsonResponse
 from rest_framework import viewsets
 from rest_framework import permissions
 from .serializers import *
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework import exceptions
 from rest_framework.response import Response
 
 # Create your views here.
@@ -19,6 +21,15 @@ class CustomAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data,
                                            context={'request': request})
+        try:
+            token = Token.objects.get()
+            user = token.user
+        except Token.DoesNotExist:
+            raise exceptions.AuthenticationFailed('Invalid token')
+
+        # Generate a new token for the user each time they log in
+        token.delete()
+        new_token = Token.objects.create(user=user)
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
         token, created = Token.objects.get_or_create(user=user)
