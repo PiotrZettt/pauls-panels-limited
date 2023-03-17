@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from .serializers import *
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.models import Token
-from rest_framework.authtoken.views import ObtainAuthToken
+# from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework import exceptions
 from rest_framework.response import Response
 
@@ -19,7 +19,7 @@ def get_current_user(request):
     return JsonResponse({"user": user.id})
 
 
-class CustomObtainAuthToken(ObtainAuthToken):
+class ObtainAuthToken(APIView):
     throttle_classes = ()
     permission_classes = ()
     parser_classes = (parsers.FormParser, parsers.MultiPartParser, parsers.JSONParser,)
@@ -31,7 +31,7 @@ class CustomObtainAuthToken(ObtainAuthToken):
         user = serializer.validated_data['user']
 
         Token.objects.filter(user=user).delete()
-        token, created = Token.objects.create(user=user)
+        token = Token.objects.create(user=user)
 
         return Response({'token': token.key})
 
