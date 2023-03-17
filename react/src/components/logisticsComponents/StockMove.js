@@ -42,7 +42,7 @@ function StockMove(props){
         axios.defaults.withCredentials = true;
 
         const data = {"project": selectedProject, "qty": parseInt(qty)}
-        const newStock = props.projects[selectedProject -1].stock + (parseInt(qty) * props.substract)
+        const newStock = props.projects[selectedProject -1]?.stock + (parseInt(qty) * props.substract)
 
         console.log("data: ", data, "old stock: ", props.projects.find(obj => obj.id === selectedProject).stock,  "new stock: ", newStock)
 
@@ -88,7 +88,7 @@ function StockMove(props){
             setSelectedProject(e.target.value)
             setShowQtyInput(true)
             setShowAddSerialsButton(false)
-            setProjectName(props.projects[selectedProject -1].name)
+            setProjectName(props.projects[selectedProject -1]?.name)
             
             console.log(" name:",  name)
             
