@@ -20,7 +20,7 @@ function Operations(props){
     const [customers, setNewCurrentCustomers] = useState([])
     const [projects, setNewCurrentProjects] = useState([])
     const [users, setUsers] = useState([])
-    const [currentUser, setCurrentUser] = useState(null)
+    const [currentUser, setCurrentUser] = useState(props.userId)
 
     const [searchedNumber, setSearchedNumber] = useState('')
     const [searchedOperation, setSearchedOperation] = useState([{"project": '', "serial_number": '', "completion": '', "comments": '', "operator": '', "date": ''}])
@@ -180,6 +180,7 @@ function Operations(props){
             Record what's being done.
             Find what has been done.
             </p>
+            <Card>
             <div className="container">
             {showWip? wip: noDisplay}
 
@@ -195,6 +196,7 @@ function Operations(props){
             <div>
                 {showSearchOutput? searchOutput: noDisplay}
             </div>
+            </Card>
     </div>
 }
 

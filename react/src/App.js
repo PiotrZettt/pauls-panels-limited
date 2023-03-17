@@ -49,7 +49,7 @@ function App(){
     </div>
 
     <div id="display-operations">
-        {displayOperations? <Operations token={authToken}/>: noDisplay}
+        {displayOperations? <Operations token={authToken} userId={userId - 1}/>: noDisplay}
     </div>
 
     <div id="display-quality">
