@@ -25,6 +25,10 @@ Create a virtual environment for the project:
 
 ```python3 -m venv <your_env_name>```
 
+Activate by:
+
+```source <your_env_name>/bin/activate
+
 Change directory to the PaulsPanelsLimited Django app:
 
 ```cd PaulsPanelsLimited```
