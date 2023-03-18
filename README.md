@@ -25,7 +25,7 @@ Create a virtual environment for the project:
 
 ```python3 -m venv <your_env_name>```
 
-Change directory to the JobWallet Django app:
+Change directory to the PaulsPanelsLimited Django app:
 
 ```cd PaulsPanelsLimited```
 
