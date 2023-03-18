@@ -19,7 +19,7 @@ Create a new folder for the application and move into that folder:
 
 Clone the git repo:
 
-```git clone git@github.com:PiotrZettt/JobWallet2.git```
+```git clone git@github.com:PiotrZettt/pauls-panels-limited.git```
 
 Create a virtual environment for the project:
 
