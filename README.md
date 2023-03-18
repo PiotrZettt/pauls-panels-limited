@@ -64,7 +64,7 @@ You will also need an admin account. Use command:
 and follow the prompts.
 
 To run the frontend React you need to go to the react directory and install the dependencies:
-```cd react & npm init -y```
+```cd react && npm init -y```
 
 and run webpack:
 ```npm run dev```
