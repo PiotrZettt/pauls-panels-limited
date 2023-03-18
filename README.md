@@ -27,7 +27,7 @@ Create a virtual environment for the project:
 
 Activate by:
 
-```source <your_env_name>/bin/activate
+```source <your_env_name>/bin/activate```
 
 Change directory to the PaulsPanelsLimited Django app:
 
