@@ -48,6 +48,7 @@ Create a .env file in the root directory:
 Open the file and paste the line:
 
 ```DATABASE_URL=postgres://user:password@host:port/database_name```
+
 replace: 'user', 'password', 'host', 'port', 'database_name' with your database credentials and save.
 
 
